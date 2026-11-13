@@ -1,0 +1,1 @@
+# app-ads.txt for ElgPixel. The AdMob line is added when the AdMob account exists.
