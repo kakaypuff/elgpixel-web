@@ -1,0 +1,95 @@
+{
+  "_readme": "WiFiRoom: the ONE file to edit. Android reads it directly at build time; iOS needs `dart run tool/apply_config.dart` after a change (CI does it automatically). The app reads it as an asset. Keys starting with _ are comments.",
+
+  "appName": "WiFiRoom",
+  "androidApplicationId": "com.elgpixel.wifiroom",
+  "iosBundleId": "com.elgpixel.wifiroom",
+
+  "owner": {
+    "name": "ElgPixel",
+    "email": "elgpixel.studio@gmail.com",
+    "website": "https://elgpixel.no"
+  },
+
+  "links": {
+    "privacyPolicy": "https://elgpixel.no/wifiroom/privacy.html",
+    "terms": "https://elgpixel.no/wifiroom/terms.html",
+    "mlabPrivacy": "https://www.measurementlab.net/privacy/",
+    "mlabAbout": "https://www.measurementlab.net/about/"
+  },
+
+  "ads": {
+    "_note": "Release builds use these IDs. Debug builds always use Google's official test IDs. Leave REPLACE_ values to ship without ads.",
+    "androidAppId": "REPLACE_ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
+    "iosAppId": "REPLACE_ca-app-pub-XXXXXXXXXXXXXXXX~XXXXXXXXXX",
+    "androidBannerId": "REPLACE_ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
+    "androidInterstitialId": "REPLACE_ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
+    "iosBannerId": "REPLACE_ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
+    "iosInterstitialId": "REPLACE_ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX",
+    "publisherId": "pub-XXXXXXXXXXXXXXXX",
+    "maxAdContentRating": "G",
+    "interstitialEveryNthTest": 2,
+    "interstitialMinSecondsBetween": 90,
+    "noInterstitialBeforeTestNumber": 2,
+    "bannerMinGapDp": 16
+  },
+
+  "test": {
+    "signalSamples": 10,
+    "signalSampleWindowMs": 2000,
+    "pingCount": 10,
+    "downloadMaxSeconds": 8,
+    "uploadMaxSeconds": 8,
+    "liveMeterIntervalMs": 500,
+    "dailyTestLimit": 40,
+    "clientName": "wifiroom",
+    "fallbackPingHosts": ["one.one.one.one", "dns.google"]
+  },
+
+  "score": {
+    "_note": "Each curve is a list of [value, points]. Straight lines between points, flat outside the ends.",
+    "signalDbm": [[-90, 0], [-80, 20], [-70, 45], [-67, 60], [-60, 80], [-50, 100]],
+    "downloadMbps": [[0, 0], [1, 10], [5, 35], [10, 50], [25, 70], [50, 85], [100, 100]],
+    "uploadMbps": [[0, 0], [0.5, 10], [2, 35], [5, 60], [10, 80], [20, 100]],
+    "pingMs": [[20, 100], [50, 80], [100, 50], [200, 20], [400, 0]],
+    "jitterPenalty": [[5, 0], [50, 15]],
+    "weightsAndroid": {"signal": 40, "download": 35, "upload": 10, "response": 15},
+    "weightsIos": {"signal": 0, "download": 60, "upload": 15, "response": 25},
+    "bands": [
+      {"min": 85, "word": "excellent"},
+      {"min": 70, "word": "good"},
+      {"min": 50, "word": "ok"},
+      {"min": 30, "word": "weak"},
+      {"min": 0, "word": "poor"}
+    ],
+    "usage": {
+      "_note": "First line whose limits are met wins. Mbit/s and ms.",
+      "rules": [
+        {"key": "use4kCalls", "minDownload": 25, "maxPing": 100, "maxJitter": 30},
+        {"key": "use4k", "minDownload": 25},
+        {"key": "useHdCalls", "minDownload": 8, "maxPing": 150, "maxJitter": 40},
+        {"key": "useHd", "minDownload": 5},
+        {"key": "useSd", "minDownload": 2},
+        {"key": "useBasic", "minDownload": 0}
+      ]
+    }
+  },
+
+  "advice": {
+    "routerSlowDownloadMbps": 10,
+    "routerGoodScore": 70,
+    "roomWeakScore": 50,
+    "weakSignalDbm": -70,
+    "strongSignalDbm": -55,
+    "goodSignalDbm": -67,
+    "highPingMs": 100,
+    "highJitterMs": 30,
+    "congratsScore": 85
+  },
+
+  "limits": {
+    "maxRooms": 30,
+    "maxTestsPerRoom": 50,
+    "roomDetailTests": 10
+  }
+}
